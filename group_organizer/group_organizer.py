@@ -57,3 +57,23 @@ def assign_matches(matcher_list, counter, group_count):
         result[used_numbers[len(used_numbers) - 1]].append(item)
 
     return result
+
+
+def show():
+    std_list = assign_matches(students, student_groups_count, group_count)
+    topic_list = assign_matches(topics, topics_per_group_count, group_count)
+
+    for i in range(0, group_count):
+        print(f"Group {i+1} (Students: {len(std_list[i])}), " +
+              f"Topics: {len(topic_list[i])}")
+        print("\tStudents:")
+        for std in range(0, len(std_list[i])):
+            print(f"\t\t{std+1}. {std_list[i][std]}")
+
+        print("\tTopics:")
+        for topic in range(0, len(topic_list[i])):
+            print(f"\t\t{topic+1}. {topic_list[i][topic]}")
+        print("--------------\n")
+
+
+show()
